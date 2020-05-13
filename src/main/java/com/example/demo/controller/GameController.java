@@ -39,23 +39,23 @@ public class GameController { // receber requisiçoes http. ex: post,get,delete
 	}
 
 	// ...
-	@GetMapping // mapea o verbo http GET
+	@GetMapping // mapear o verbo http GET
 	public List<Game> listaTodos() { // retorna todos as informações cadastrados no banco de dados
 		return gameRepository.findAll();
 	}
 	
-	@GetMapping("/{id}") // mapea o verbo http, GET com um parametro id
-	public Optional<Game> findOne(@PathVariable Long id) { // meu metodo sempre ira retorna se ele será publico ou privado, depois o tipo de dado que ele retorna e depois o neme que será dado 
+	@GetMapping("/{id}") // mapear o verbo http, GET com um parametro id
+	public Optional<Game> findOne(@PathVariable Long id) { // meu metodo sempre ira retorna se ele será publico ou privado, depois o tipo de dado que ele retorna e depois o nome que será dado 
 		return gameRepository.findById(id); // gameRepository ele acessa o banco de dados e busca um registro usando o id fornecido
 	}
 
-	@DeleteMapping("/{id}") // mapea o verbo http DELETE
+	@DeleteMapping("/{id}") // mapear o verbo http DELETE
 	public String delete (@PathVariable Long id) { // retorna um parametro
 		gameRepository.deleteById(id); // ele vai no banco de dados e executa a função deleta com o codigo fornecido
 		return "O Game com Id: " + id + " Foi deletado com sucesso"; // texto explicativo 
 	}
 	
-	@PutMapping("/{id}") // mapea o verbo http PUT com um parametro id
+	@PutMapping("/{id}") // mapear o verbo http PUT com um parametro id
 	public Game updateGame(@RequestBody Game game, @PathVariable Long id) {
 		Game gameSaved = gameRepository.findById(id).get(); // pegar a informação no meu banco de dados
 
