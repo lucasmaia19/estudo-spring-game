@@ -49,6 +49,7 @@ public class GameController { // receber requisiçoes http. ex: post,get,delete
 		return gameRepository.findById(id); // gameRepository ele acessa o banco de dados e busca um registro usando o id fornecido
 	}
 
+	
 	@DeleteMapping("/{id}") // mapear o verbo http DELETE
 	public String delete (@PathVariable Long id) { // retorna um parametro
 		gameRepository.deleteById(id); // ele vai no banco de dados e executa a função deleta com o codigo fornecido
